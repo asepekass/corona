@@ -19,7 +19,7 @@ return $output;
 
 }
 
-$data = http_request("https://coronavirus-19-api.herokuapp.com/countries");
+$data = http_request("https://api.kawalcorona.com/indonesia/provinsi/");
 
 $data = json_decode($data, TRUE);
 
@@ -33,25 +33,24 @@ $nomor = 1;
 
 for($i = 0; $i < $jumlah; $i++){
 
-$hasil = $data[$i];
-$cas = hasil['cases'];
-$casri = number_format($cas,0,',','.');
+$hasil = $data[$i]['attributes'];
+$pos = hasil['Kasus_Posi'];
+$posri = number_format($pos,0,',','.');
 
-$rec = hasil['recovered'];
-$recri = number_format($rec,0,',','.');
+$sem = hasil['Kasus_Semb'];
+$semri = number_format($sem,0,',','.');
 
-$dea = hasil['deaths'];
-$deari = number_format($dea,0,',','.');
-
+$men = hasil['Kasus_Meni'];
+$menri = number_format($men,0,',','.');
 
 ?>
 
 <tr>
 <td><??></td>
-<td><?=$hasil['country']?></td>
-<td><?=$casri?></td>
-<td><?=$recri?></td>
-<td><?=$deari?></td>
+<td><?=$hasil['Provinsi']?></td>
+<td><?=$posri?></td>
+<td><?=$semri?></td>
+<td><?=$menri?></td>
 
 </tr>
 
